@@ -65,21 +65,28 @@ int main()
     cout << "Give bottom number";
     cin >> bottom;
     validateInput();
-    cout << "Choose operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n 5. Square root\n 6. Power";
+    cout << "Choose operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square root\n6. Power";
     cin >> operation;
+    validateInput();
     switch (operation)
     {
     case 1:
         result = add(top, bottom);
         break;
     case 2:
-        result = top - bottom;
+        result = subtract(top, bottom);
         break;
     case 3: 
-        result = top * bottom;
+        result = multiply(top, bottom);
         break;
     case 4:
-        result = top / bottom;
+        result = divide(top, bottom);
+        break;
+    case 5:
+        result = squareroot(bottom);
+        break;
+    case 6:
+        result = power(top, bottom);
         break;
     default:
         break;
