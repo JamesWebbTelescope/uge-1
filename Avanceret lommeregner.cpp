@@ -10,6 +10,7 @@ double bottom;
 double result;
 int operation;
 bool validate;
+string cont;
 
 void validateInput()
 {
@@ -59,37 +60,76 @@ double power(double a, double b)
 
 int main()
 {
-    cout << "Give top number";
-    cin >> top;
-    validateInput();
-    cout << "Give bottom number";
-    cin >> bottom;
-    validateInput();
-    cout << "Choose operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square root\n6. Power";
-    cin >> operation;
-    validateInput();
-    switch (operation)
+    while(1)
     {
-    case 1:
-        result = add(top, bottom);
-        break;
-    case 2:
-        result = subtract(top, bottom);
-        break;
-    case 3: 
-        result = multiply(top, bottom);
-        break;
-    case 4:
-        result = divide(top, bottom);
-        break;
-    case 5:
-        result = squareroot(bottom);
-        break;
-    case 6:
-        result = power(top, bottom);
-        break;
-    default:
-        break;
+        cout << "Give top number";
+        cin >> top;
+        validateInput();
+        if(validate == false)
+        {
+            cout << "Give bottom number";
+            cin >> bottom;
+            validateInput();
+            if(validate == false)
+            {
+                cout << "Choose operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Square root\n6. Power\n";
+                cin >> operation;
+                validateInput();
+                if(validate == false)
+                {
+                    switch (operation)
+                    {
+                    case 1:
+                        result = add(top, bottom);
+                        break;
+                    case 2:
+                        result = subtract(top, bottom);
+                        break;
+                    case 3: 
+                        result = multiply(top, bottom);
+                        break;
+                    case 4:
+                        result = divide(top, bottom);
+                        break;
+                    case 5:
+                        result = squareroot(bottom);
+                        break;
+                    case 6:
+                        result = power(top, bottom);
+                        break;
+                    default:
+                        break;
+                    }
+                    cout << "Result: " << result << "\n"; 
+                }  
+                else
+                {
+                    ;
+                }
+            }
+            else
+            {
+                ;
+            }
+        }
+        else
+        {
+            ;
+        }
+        validate = false;
+        cout << "Do you want to continue? Answer Yes or No" << "\n";
+        cin >> cont;
+        if(cont == "No")
+        {
+            break;
+        }
+        else if(cont == "Yes")
+        {
+            ;
+        }
+        else 
+        {
+            break;
+        }
     }
-    cout << "Result: " << result;
 }
